@@ -59,10 +59,10 @@ def save_entry():
     return jsonify("Success")
 
 
-@app.route("", methods=[""])
+@app.route("/bot-response", methods=["POST"])
 def bot():
     # Obtenha a entrada do usuário
-    input_text = request.json.get("")
+    input_text = request.json.get("user_bot_input_text")
    
    
     # Chame o método para obter a resposta do robô
@@ -70,7 +70,7 @@ def bot():
     
 
     response = {
-            "": bot_res
+            "bot_response": bot_res
         }
 
     return jsonify(response)     

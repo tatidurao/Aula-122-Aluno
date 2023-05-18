@@ -70,38 +70,38 @@ $(function () {
 
 
 function displayBot() {
-    $('').click(function () {
-        $('').toggle()
+    $('.chatbox__button').click(function () {
+        $('.chatbox__chat').toggle()
     });
     //Inicie a conversa com o robô
     askBot()
 }
 
 function askBot() {
-    $("").click(function () {
+    $("#send_button").click(function () {
 
-        var user_bot_input_text = $("").val()
+        var user_bot_input_text = $("#bot_input_text").val()
 
         if (user_bot_input_text != "") {
            
-            $("").append('<div class="user__messages">' + user_bot_input_text + ' </div>')
+            $("#chat_messages").append('<div class="user__messages">' + user_bot_input_text + ' </div>')
             
             let chat_input_data = {
-                "": user_bot_input_text
+                "user_bot_input_text": user_bot_input_text
             }
 
             //Limpe a caixa de entrada de texto após enviar a mensagem
-            $("").val('');
+            $("#bot_input_text").val('');
 
             $.ajax({
-                type: '',
-                url: "",
+                type: 'POST',
+                url: "/bot-response",
                 data: JSON.stringify(chat_input_data),
                 dataType: "json",
                 contentType: 'application/json',
                     success: function (result) {
                         
-                        $("#chat_messages").append('<div class="bot__messages">' + result.+ ' </div>')                        
+                        $("#chat_messages").append('<div class="bot__messages">' + result.bot_response + ' </div>')                        
                         $('.chatbox__messages__cotainer').animate({
                             scrollTop: $('.chatbox__messages__cotainer')[0].scrollHeight}, 2000);
                     },
@@ -113,10 +113,10 @@ function askBot() {
         }
 
     })
-    $('#').keypress(function(e){
+    $('#bot_input_text').keypress(function(e){
         //Se a tecla Enter (código de tecla 13) for pressionada
         if(e.which == 13){         
-            $('').click(); //Dispara o evento de clicar do botão Enviar
+            $('#send_button').click(); //Dispara o evento de clicar do botão Enviar
         }
     });
 }
