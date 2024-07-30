@@ -70,53 +70,11 @@ $(function () {
 
 
 function displayBot() {
-    $('.').click(function () {
-        $('.').toggle()
-    });
+    //abra a janela do robo
     //Inicie a conversa com o robô
     askBot()
 }
 
 function askBot() {
-    $("#").click(function () {
-
-        var user_bot_input_text = $("#").val()
-
-        if (user_bot_input_text != "") {
-           
-            $("#").append('<div class="user__messages">' + user_bot_input_text + ' </div>')
-            
-            let chat_input_data = {
-                "user_bot_input_text": user_bot_input_text
-            }
-
-            //Limpe a caixa de entrada de texto após enviar a mensagem
-            $("#").val('');
-
-            $.ajax({
-                type: 'POST',
-                url: "/",
-                data: JSON.stringify(),
-                dataType: "json",
-                contentType: 'application/json',
-                    success: function (result) {
-                        
-                        $("#").append('<div class="bot__messages">' + result.bot_response+ ' </div>')                        
-                        $('.chatbox__messages__cotainer').animate({
-                            scrollTop: $('.chatbox__messages__cotainer')[0].scrollHeight}, 2000);
-                    },
-                    error: function (result) {
-                        alert(result.responseJSON.message)
-                    }
-            });
-
-        }
-
-    })
-    $('#').keypress(function(e){
-        //Se a tecla Enter (código de tecla 13) for pressionada
-        if(e.which == 13){         
-            $('#').click(); //Dispara o evento de clicar do botão Enviar
-        }
-    });
+    
 }
