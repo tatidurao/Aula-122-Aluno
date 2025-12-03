@@ -44,8 +44,6 @@
     {"tag": "viagem",
         "patterns": ["Gosto de viajar", "Gosto de explorar lugares diferentes", "viajar"],
         "responses": ["Voce pode visitar um zoologico hoje!","Voce pode visitar um parque de diversoes hoje"]},
-    {"tag": "Joao",
-        "patterns": ["Eu amo o Joao", "Não vivo sem o Joao", "o Joao é o amor da minha vida"],
-        "responses": ["Eu naõ conheco o Joao mas tenho certeza que ele te ama tambem","O JOAO é um cara de sorte"]}             
+                 
 ]}
 
